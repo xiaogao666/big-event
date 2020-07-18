@@ -48,11 +48,15 @@ $('#tuichu').click(function () {
     layer.confirm('确定退出登录?', { icon: 3, title: '提示' },
     function(index) {
 
-    localStorage.removeItem('token')
-
-    location.href = '/login.html'
+        closeTc()
 
     layer.close(index);
 
      })
 })
+
+function closeTc(){
+    localStorage.removeItem('token')
+
+    location.href = '/login.html'
+}
