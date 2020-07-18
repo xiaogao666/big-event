@@ -13,33 +13,33 @@
 
 <body>
     <div class="layui-card">
-        <div class="layui-card-header">修改页面</div>
+        <div class="layui-card-header">密码修改</div>
         <div class="layui-card-body">
             <!-- form 表单区域 -->
 <form class="layui-form" lay-filter="formUserInfo">
     <!-- 隐藏域 -->
     <input type="hidden" name="id">
     <div class="layui-form-item">
-      <label class="layui-form-label">登录名称</label>
+      <label class="layui-form-label">原密码</label>
       <div class="layui-input-block">
-        <input type="text" name="username"  placeholder="请输入登录名称" autocomplete="off" class="layui-input" readonly />
+        <input type="text" name="oldpwd" required lay-verify="required|nickname"  placeholder="请输入登录名称" autocomplete="off" class="layui-input" />
       </div>
     </div>
     <div class="layui-form-item">
-      <label class="layui-form-label">用户昵称</label>
+      <label class="layui-form-label">新密码</label>
       <div class="layui-input-block">
-        <input type="text" name="nickname" required lay-verify="required|nickname" placeholder="请输入用户昵称" autocomplete="off" class="layui-input" />
+        <input type="text" name="newpwd" required lay-verify="required|nickname" placeholder="请输入用户昵称" autocomplete="off" class="layui-input" />
       </div>
     </div>
     <div class="layui-form-item">
-      <label class="layui-form-label">用户邮箱</label>
+      <label class="layui-form-label">确认密码</label>
       <div class="layui-input-block">
-        <input type="text" name="email" required lay-verify="required|email" placeholder="请输入用户邮箱" autocomplete="off" class="layui-input" />
+        <input type="text" name="repwd" required lay-verify="required|email" placeholder="请输入用户邮箱" autocomplete="off" class="layui-input" />
       </div>
     </div>
     <div class="layui-form-item">
       <div class="layui-input-block">
-        <button class="layui-btn"  lay-submit lay-filter="formDemo">提交修改</button>
+        <button class="layui-btn"  lay-submit>提交修改</button>
         <button type="reset" id="btnReset" class="layui-btn layui-btn-primary">重置</button>
       </div>
     </div>
@@ -53,7 +53,7 @@
 
     <script src="/assets/js/webApi.js"></script>
 
-    <script src="/assets/js/user/user-info.js"></script>
+    <script src="/assets/js/user/user_pwd.js"></script>
 </body>
 
 </html>

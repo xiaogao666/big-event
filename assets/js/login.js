@@ -37,10 +37,10 @@ $(function() {
         // 注册请求
         $.ajax({
             type: 'POST',
-            url: 'http://ajax.frontend.itheima.net/api/reguser',
+            url: '/api/reguser',
             data,
             success (res) {
-                console.log(res)
+                // console.log(res)
                 if( res.status != 0) return layer.msg(res.message);
                 layer.msg('注册成功')
                 $('#link_login').click()
@@ -58,10 +58,10 @@ $(function() {
 
         $.ajax({
             method: 'POST',
-            url: 'http://ajax.frontend.itheima.net/api/login',
+            url: '/api/login',
             data,
             success (res) {
-                if(res.status != 0) return layer.msg('res.message')
+                if(res.status != 0) return layer.msg(res.message)
                 layer.msg('登陆成功')
                 localStorage.setItem('token', res.token)
                 location.href = '/index.html'
