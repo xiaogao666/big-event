@@ -5,7 +5,7 @@ $(function() {
     // 自定义验证规则
     form.verify({ 
         nickname: function (value){ 
-            if (value.length > 6) { 
+            if (value.length < 6) { 
                 return '昵称长度必须在 1 ~ 6 个字符之间！' 
             }
      },
@@ -36,8 +36,9 @@ $(function() {
                 if(res.status !== 0) {
                     return layer.msg(res.message)
                 }
-                layer.msg('更新成功')
-                window.parent.closeTc()
+                layer.msg('密码更新成功，请重新登录')
+                $('.layui-form')[0].reset()
+                setTimeout(function(){window.parent.closeTc()},500)
             }
         })
     })
