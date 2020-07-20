@@ -35,6 +35,39 @@ $(function () {
     .cropper('destroy') // 销毁旧的裁剪区域
     .attr('src', imgURL) // 重新设置图片路径
     .cropper(options) // 重新初始化裁剪区域
+  })
+
+  $('#qd').click(function(){
+    // alert(1)
+
+    // 获取裁切后的图片
+    var dataURL = $image
+    .cropper('getCroppedCanvas', {
+      // 创建一个 Canvas 画布
+      width: 100,
+      height: 100
+    })
+    .toDataURL('image/png')
+
+
+    $.ajax({
+      type: 'POST',
+      url: '/my/update/avatar',
+      data: {
+        avatar: dataURL
+      },
+      success (res) {
+        // console.log(res);
+        if(res.status !== 0 ) {
+          return layer.msg(res.message)
+        }
+
+        layer.msg('成功')
+
+        window.parent.getUserInfo()
+      }
+    })
+
 
 
   })
